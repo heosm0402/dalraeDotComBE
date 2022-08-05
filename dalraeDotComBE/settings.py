@@ -1,3 +1,7 @@
+import os
+import pymysql
+
+
 """
 Django settings for dalraeDotComBE project.
 
@@ -37,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'studio'
 ]
 
 MIDDLEWARE = [
@@ -73,10 +78,15 @@ WSGI_APPLICATION = 'dalraeDotComBE.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+pymysql.install_as_MySQLdb()
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': os.environ.get('DalraeDotComDBName'),
+        'USER': os.environ.get('DalraeDotComDBUser'),
+        'PASSWORD': os.environ.get('DalraeDotComDBPass'),
+        'HOST': os.environ.get('DalraeDotComDBHost'),
+        'PORT': os.environ.get('DalraeDotComDBPort'),
     }
 }
 
