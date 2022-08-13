@@ -43,10 +43,16 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'studio',
-    'users'
+    'users',
+    'reply',
+    'corsheaders'
 ]
 
+CORS_ORIGIN_WHITELIST = ['http://127.0.0.1:19006', 'http://localhost:19006', 'http://106.247.250.251:120']
+CORS_ALLOW_CREDENTIALS = True
+
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
