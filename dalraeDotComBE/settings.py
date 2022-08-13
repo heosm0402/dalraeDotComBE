@@ -29,7 +29,7 @@ SECRET_KEY = os.environ.get('DalraeDotComDjangoSecretKey')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["10.0.0.138", "localhost"]
+ALLOWED_HOSTS = ["10.0.0.138", "localhost", "106.247.250.251"]
 
 
 # Application definition
