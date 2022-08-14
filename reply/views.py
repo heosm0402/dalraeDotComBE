@@ -20,7 +20,6 @@ logger = get_initialized_logger("reply logger", logging.INFO, os.path.join(CONST
 def reply(request):
     if request.method == "GET":
         logger.info("GET REQUEST")
-        logger.info(dir(request))
         reply_list = Reply.objects.all().order_by("-id")
         serializer = ReplySerializer(reply_list, many=True)
         return HttpResponse(content=json.dumps(serializer.data), status=status.HTTP_200_OK)
