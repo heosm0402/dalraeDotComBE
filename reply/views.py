@@ -27,7 +27,7 @@ def reply(request):
     elif request.method == "POST" or request.method == "OPTIONS":
         logger.info("POST REQUEST")
         data = JSONParser().parse(request)
-        date = datetime.now().replace(microsecond=0) + timedelta(hours=9)
+        date = datetime.now().replace(microsecond=0)
         date.astimezone(CONST.KST)
         data["date"] = date
 
