@@ -13,7 +13,7 @@ from .models import Reply
 def reply(request):
     print(request)
     if request.method == "GET":
-        reply_list = Reply.objects.all()
+        reply_list = Reply.objects.all().order_by("-id")
         serializer = ReplySerializer(reply_list, many=True)
         print(type(json.dumps(serializer.data)))
         return HttpResponse(content=json.dumps(serializer.data), status=status.HTTP_200_OK)
