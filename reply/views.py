@@ -16,6 +16,7 @@ from .models import Reply
 
 logger = get_initialized_logger("reply logger", logging.INFO, os.path.join(CONST.LOG_ROOT_DIR, "reply.log"))
 
+
 @api_view(['GET', 'POST', 'OPTIONS'])
 def reply(request):
     if request.method == "GET":
