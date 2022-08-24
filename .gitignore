@@ -385,3 +385,4 @@ fabric.properties
 
 .idea
 logs/*.log
+logs/*.swp
