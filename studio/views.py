@@ -24,13 +24,14 @@ def image(request):
     elif request.method == "POST" or request.method == "OPTIONS":
         try:
             logger.info("POST REQUEST")
-            file_metadata, encoded_image_data = request.data.get("file_attachment").split(",")
-            image_extension = file_metadata.split("/")[-1].split(";")[0]
+            file_name = request.data.get("attached_file_name")
+            file_extension = request.data.get("attached_file_type").split("/")[-1]
+            encoded_image_data = request.data.get("attached_file_uri")
+            logger.info(encoded_image_data)
             decoded_data = base64.b64decode(encoded_image_data)
-            img_file = open(os.path.join(CONST.IMAGE_FILE_ROOT_DIR, f"image.{image_extension}"), 'wb')
+            img_file = open(os.path.join(CONST.IMAGE_FILE_ROOT_DIR, f"{file_name}.{file_extension}"), 'wb')
             img_file.write(decoded_data)
             img_file.close()
-
         except Exception as e:
             logger.exception(e)
 
