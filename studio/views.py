@@ -41,7 +41,9 @@ def image(request):
             logger.info(f"file name: {file_name}")
             logger.info(f"file extension: {file_extension}")
             decoded_data = base64.b64decode(encoded_image_data)
-            img_file = open(os.path.join(CONST.IMAGE_FILE_ROOT_DIR, f"{file_name}.{file_extension}"), 'wb')
+            image_file_save_path = os.path.join(CONST.IMAGE_FILE_ROOT_DIR, f"{file_name}.{file_extension}")
+            logger.info(f"image_file_save_path: {image_file_save_path}")
+            img_file = open(image_file_save_path, 'wb')
             img_file.write(decoded_data)
             img_file.close()
             response_data = {"message": "posting image done"}
