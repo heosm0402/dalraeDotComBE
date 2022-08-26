@@ -1,7 +1,7 @@
 import json
 import logging
 import os.path
-from datetime import datetime, timedelta
+from datetime import datetime
 
 import CONSTANT as CONST
 from utils.logger import get_initialized_logger
@@ -19,6 +19,8 @@ logger = get_initialized_logger("reply logger", logging.INFO, os.path.join(CONST
 
 @api_view(['GET', 'POST', 'OPTIONS'])
 def reply(request):
+    logger.info(datetime.now())
+    logger.info(request.headers)
     if request.method == "GET":
         logger.info("GET REQUEST")
         reply_list = Reply.objects.all().order_by("-id")
