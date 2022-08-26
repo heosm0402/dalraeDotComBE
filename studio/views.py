@@ -21,13 +21,13 @@ logger = get_initialized_logger("studio logger", logging.INFO, os.path.join(CONS
 # Create your views here.
 @api_view(['GET', 'POST', 'OPTIONS'])
 def image(request):
-    logger.info(datetime.now())
-    logger.info(request.headers)
     if request.method == "GET":
+        logger.info(request.headers)
         return HttpResponse(content="get image", status=status.HTTP_200_OK)
     elif request.method == "POST" or request.method == "OPTIONS":
         try:
             logger.info("POST REQUEST")
+            logger.info(request.headers)
             if request.data.get("expo_image_upload"):
                 image_uri = request.data.get("expo_image_upload")
                 file_name = hashlib.sha256(str(time.time()).encode('utf-8')).hexdigest()
