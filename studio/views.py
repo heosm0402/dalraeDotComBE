@@ -15,7 +15,7 @@ from rest_framework.response import Response
 from rest_framework.parsers import JSONParser
 
 
-logger = get_initialized_logger("reply logger", logging.INFO, os.path.join(CONST.LOG_ROOT_DIR, "studio.log"))
+logger = get_initialized_logger("studio logger", logging.INFO, os.path.join(CONST.LOG_ROOT_DIR, "studio.log"))
 
 
 # Create your views here.
