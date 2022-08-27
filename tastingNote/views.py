@@ -4,6 +4,7 @@ from datetime import datetime
 import hashlib
 import time
 import base64
+import json
 
 import CONSTANT as CONST
 from utils.logger import get_initialized_logger
@@ -26,9 +27,9 @@ def metadata(request):
 
     if request.method == "GET":
         logger.info("GET REQUEST")
-        image_metad_list = Imagemeta.objects.all().order_by("-id")
-        serializer = ImagemetaSerializer(image_metad_list, many=True)
-        return HttpResponse(content=serializer.data, status=status.HTTP_200_OK)
+        image_metadata_list = Imagemeta.objects.all().order_by("-id")
+        serializer = ImagemetaSerializer(image_metadata_list, many=True)
+        return HttpResponse(content=json.dumps(serializer.data), status=status.HTTP_200_OK)
     elif request.method == "POST" or request.method == "OPTIONS":
         logger.info("POST REQUEST")
         logger.info(request.headers)
