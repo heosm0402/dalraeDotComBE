@@ -9,4 +9,4 @@ class ImagemetaSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Imagemeta
-        field = ["id", "date", "image_file_name"]
+        field = ["id", "datetime", "image_file_name"]
