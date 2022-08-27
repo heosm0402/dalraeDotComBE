@@ -28,7 +28,7 @@ def metadata(request):
         logger.info("GET REQUEST")
         image_metad_list = Imagemeta.objects.all().order_by("-id")
         serializer = ImagemetaSerializer(image_metad_list, many=True)
-        return HttpResponse(content=serializer, status=status.HTTP_200_OK)
+        return HttpResponse(content=serializer.data, status=status.HTTP_200_OK)
     elif request.method == "POST" or request.method == "OPTIONS":
         logger.info("POST REQUEST")
         logger.info(request.headers)
