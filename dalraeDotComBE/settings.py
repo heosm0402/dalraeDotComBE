@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'studio',
     'users',
     'reply',
-    'tastingnote',
+    'tastingNote',
     'corsheaders'
 ]
 

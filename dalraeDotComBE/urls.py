@@ -20,5 +20,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('studio/', include('studio.urls')),
     path('users/', include('users.urls')),
-    path('reply/', include('reply.urls'))
+    path('reply/', include('reply.urls')),
+    path('tastingNote/', include('tastingNote.urls'))
 ]
